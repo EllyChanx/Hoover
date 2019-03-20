@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "jasmine": "^3.3.1",
-    "jasmine-node": "^1.16.2"
+    "jasmine-node": "^1.16.2",
+    "node-fetch": "^2.3.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.3",
