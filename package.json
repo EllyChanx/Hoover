@@ -1,0 +1,19 @@
+{
+  "name": "hoover",
+  "version": "1.0.0",
+  "description": "tech test",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "elly",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.3.1",
+    "jasmine-node": "^1.16.2"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.3",
+    "eslint": "^5.15.3"
+  }
+}
