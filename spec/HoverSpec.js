@@ -26,4 +26,16 @@ describe("Hoover", function() {
     hoover.roomHeight = 1;
     expect(function(){hoover.getInitialCoord()}).toThrowError("hoover doesn't work outdoor")
   });
+
+  it("#getMoves get an array of the instructed movements", function() {
+    hoover.getMoves();
+    expect(hoover.moves).toEqual([ 'N', 'N', 'E', 'S', 'E', 'E', 'S', 'W', 'N', 'W', 'W' ])
+  });
+
+  it("#applyMoves turn moves into move coord trace as ary", function() {
+    hoover.getInitialCoord();
+    hoover.getMoves();
+    expect(hoover.applyMoves()).toContain([ 1, 3 ] && [ 1, 4 ]);
+  });
+
 });
