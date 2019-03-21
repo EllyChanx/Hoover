@@ -3,8 +3,7 @@
 
 function Hoover() {
   let fs = require('fs');
-  this.inputInstr = fs.readFileSync('/home/elly/Desktop/Hoover/input.txt').toString().split("\n");
-  console.log(this.inputInstr)
+  this.inputInstr = fs.readFileSync(__dirname + '/../input.txt').toString().split("\n");
 }
 
 Hoover.prototype.getRoomDimensions = function() {
@@ -31,33 +30,49 @@ Hoover.prototype.applyMoves = function() {
   let self = this;
   let X = self.initialXCoord;
   let Y = self.initialYCoord;
-  self.moveTrace = [[X, Y]]
-  self.moves.map(function(i) {
+  self.moveTrace = [[`${X}`, `${Y}`]]
+  self.moves.map( i => {
     switch (i) {
     case "N":
-      Y + 1 > self.roomHeight ? true : self.moveTrace.push([X, Y+=1]);
+      Y + 1 > self.roomHeight ? true : self.moveTrace.push([`${X}`, `${Y+=1}`]);
       break;
     case "E":
-      X + 1 > self.roomWidth ? true : self.moveTrace.push([X+=1, Y]);
+      X + 1 > self.roomWidth ? true : self.moveTrace.push([`${X+=1}`, `${Y}`]);
       break;
     case "S":
-      Y - 1 < 0 ? true : self.moveTrace.push([X , Y-=1])
+      Y - 1 < 0 ? true : self.moveTrace.push([`${X}` , `${Y-=1}`])
       break;
     case "W":
-      X - 1 < 0 ? true : self.moveTrace.push([X-=1 , Y])
+      X - 1 < 0 ? true : self.moveTrace.push([`${X-=1}` , `${Y}`])
     }
   });
-  return self.moveTrace
+};
+
+Hoover.prototype.getDirtCoord = function() {
+  let dirtInput = this.inputInstr.slice(2, -1)
+  this.dirtCoord = dirtInput.map( i =>
+    i = i.split(" ")
+  )
+};
+
+Hoover.prototype.countDirtCleaned = function() {
+  this.dirtCleaned = 0
+  let self = this;
+  self.dirtCoord.map( i => {
+    if (JSON.stringify(self.moveTrace).includes(JSON.stringify(i))){
+      self.dirtCleaned++
+    } 
+  })
 };
 
 Hoover.prototype.outputResult = function() {
-  console.log(true);
   hoover.getRoomDimensions()
   hoover.getInitialCoord()
   hoover.getMoves()
   hoover.applyMoves()
-  console.log(hoover.moveTrace)
-  
+  hoover.getDirtCoord()
+  hoover.countDirtCleaned()
+  console.log(this.dirtCleaned)
 };
 
 module.exports = Hoover;
