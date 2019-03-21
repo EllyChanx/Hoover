@@ -5,3 +5,4 @@
 /app.js
 /spec/jasmine_examples/*
 /lib/jasmine_examples/*
+/npm-debug.log
