@@ -46,6 +46,7 @@ Hoover.prototype.applyMoves = function() {
       X - 1 < 0 ? true : self.moveTrace.push([`${X-=1}` , `${Y}`])
     }
   });
+  self.lastCoord = self.moveTrace.slice(-1)[0]
 };
 
 Hoover.prototype.getDirtCoord = function() {
@@ -72,6 +73,7 @@ Hoover.prototype.outputResult = function() {
   hoover.applyMoves()
   hoover.getDirtCoord()
   hoover.countDirtCleaned()
+  console.log(Number(this.lastCoord[0]) + " " + this.lastCoord[1])
   console.log(this.dirtCleaned)
 };
 

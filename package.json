@@ -2,16 +2,22 @@
   "name": "hoover",
   "version": "1.0.0",
   "description": "tech test",
-  "main": "index.js",
+  "main": "Hoover.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jasmine",
+    "report-coverage": "istanbul cover ./node_modules/jasmine/bin/jasmine.js"
   },
   "author": "elly",
   "license": "ISC",
   "dependencies": {
+    "grunt-coveralls": "^2.0.0",
+    "grunt-template-jasmine-istanbul": "^0.5.0",
+    "istanbul": "^0.4.5",
     "jasmine": "^3.3.1",
+    "jasmine-console-reporter": "^3.1.0",
     "jasmine-node": "^1.16.2",
-    "node-fetch": "^2.3.0"
+    "jasmine-supertest": "^1.0.0",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "coveralls": "^3.0.3",
