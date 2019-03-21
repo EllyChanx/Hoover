@@ -3,7 +3,7 @@
 
 function Hoover() {
   let fs = require('fs');
-  this.inputInstr = fs.readFileSync(__dirname + '/../input.txt').toString().split("\n");
+  this.inputInstr = fs.readFileSync(__dirname + '/input.txt').toString().split("\n");
 }
 
 Hoover.prototype.getRoomDimensions = function() {

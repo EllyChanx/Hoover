@@ -1,5 +1,5 @@
 describe("Hoover", function() {
-  var Hoover = require('../src/Hoover');
+  var Hoover = require('../Hoover');
 
   beforeEach(function() {
     hoover = new Hoover();
