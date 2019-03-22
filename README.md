@@ -61,9 +61,9 @@ eslint Hoover.js
 * Function names start with `.get` (e.g. `.getRoomSize` & `.getInitialCoord`) are designed to process raw data and arrange them into workable arrays.
 
 ### Assumptions
-1. Multiple patches of dirt on the same coord. should all be cleaned up by Hoover and counted individually even Hoover only clean such coord. once.
+1. Multiple patches of dirt on the same coordinate should all be cleaned up by Hoover and counted individually even Hoover only clean such coordinate once.
 2. Hoover should not be placed outside of the room; otherwise, an error will be logged.
-3. When Hoover is at the coord. of any walls, further move instructions into the wall should not take effect; Hoover should stay in place until the next effective instruction take place.
+3. When Hoover is at the coordinate of any walls, further move instructions into the wall should not take effect; Hoover should stay in place until the next effective instruction take place.
 
 ### Improvements
 1. The move instructions (cardinal directions) are being processed into an array `this.moves` then iterated with a `switch`:
@@ -94,4 +94,4 @@ self.dirtCoord.map( i => {
   } 
 })
 ```
-I altered the `switch` to store the movement coord. `this.moveTrace` as string in arrays; then I use `JSON.stringify` to allow `.includes` to be implemented. Potential problem on comparing array using `JSON.stringify` have not yet been found, but I simply (somehow) feel struggled that coord. for `this.moveTrace` are being stored as string.
+I altered the `switch` to store the movement coordinate `this.moveTrace` as string in arrays; then used `JSON.stringify` to allow `.includes` to be implemented. Potential problem on comparing array using `JSON.stringify` have not yet been found, but I simply (somehow) feel struggled that coordinate for `this.moveTrace` are being stored as string.
