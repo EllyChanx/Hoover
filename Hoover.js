@@ -6,7 +6,7 @@ function Hoover() {
   this.inputInstr = fs.readFileSync(__dirname + '/input.txt').toString().split("\n");
 }
 
-Hoover.prototype.getRoomDimensions = function() {
+Hoover.prototype.getRoomSize = function() {
   let roomDimensions = this.inputInstr[0].split(" ")
   this.roomWidth = Number(roomDimensions[0])
   this.roomHeight = Number(roomDimensions[1])
@@ -21,7 +21,7 @@ Hoover.prototype.getInitialCoord = function() {
   }
 };
 
-Hoover.prototype.getMoves = function() {
+Hoover.prototype.getMoveInstr = function() {
   let movetIndex = this.inputInstr.length - 1
   this.moves = this.inputInstr[movetIndex].split("")
 };
@@ -30,20 +30,20 @@ Hoover.prototype.applyMoves = function() {
   let self = this;
   let X = self.initialXCoord;
   let Y = self.initialYCoord;
-  self.moveTrace = [[`${X}`, `${Y}`]]
+  self.moveTrace = [[`${X}`, `${Y}`]] // Hoover movement trace start with the initial coord.
   self.moves.map( i => {
     switch (i) {
-    case "N":
-      Y + 1 > self.roomHeight ? true : self.moveTrace.push([`${X}`, `${Y+=1}`]);
-      break;
-    case "E":
-      X + 1 > self.roomWidth ? true : self.moveTrace.push([`${X+=1}`, `${Y}`]);
-      break;
-    case "S":
-      Y - 1 < 0 ? true : self.moveTrace.push([`${X}` , `${Y-=1}`])
-      break;
-    case "W":
-      X - 1 < 0 ? true : self.moveTrace.push([`${X-=1}` , `${Y}`])
+      case "N":
+        Y + 1 > self.roomHeight ? true : self.moveTrace.push([`${X}`, `${Y+=1}`]);
+        break;
+      case "E":
+        X + 1 > self.roomWidth ? true : self.moveTrace.push([`${X+=1}`, `${Y}`]);
+        break;
+      case "S":
+        Y - 1 < 0 ? true : self.moveTrace.push([`${X}` , `${Y-=1}`])
+        break;
+      case "W":
+        X - 1 < 0 ? true : self.moveTrace.push([`${X-=1}` , `${Y}`])
     }
   });
   self.lastCoord = self.moveTrace.slice(-1)[0]
@@ -67,9 +67,9 @@ Hoover.prototype.countDirtCleaned = function() {
 };
 
 Hoover.prototype.outputResult = function() {
-  hoover.getRoomDimensions()
+  hoover.getRoomSize()
   hoover.getInitialCoord()
-  hoover.getMoves()
+  hoover.getMoveInstr()
   hoover.applyMoves()
   hoover.getDirtCoord()
   hoover.countDirtCleaned()
