@@ -9,7 +9,7 @@ describe("Hoover", function() {
     hoover.getRoomSize();
     expect(hoover.roomWidth).toEqual(5);
     expect(hoover.roomHeight).toEqual(5);
-    });
+  });
 
   it("#getInitialCoord get the hoover's initial X & Y coord.", function() {
     hoover.getInitialCoord();
