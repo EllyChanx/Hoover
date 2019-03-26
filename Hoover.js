@@ -34,10 +34,10 @@ Hoover.prototype.applyMoves = function() {
   self.moves.map( i => {
     switch (i) {
       case "N":
-        Y + 1 > self.roomHeight ? true : self.moveTrace.push([`${X}`, `${Y+=1}`]);
+        Y + 1 > self.roomHeight ? true : self.moveTrace.push([`${X}`, `${Y+=1}`])
         break;
       case "E":
-        X + 1 > self.roomWidth ? true : self.moveTrace.push([`${X+=1}`, `${Y}`]);
+        X + 1 > self.roomWidth ? true : self.moveTrace.push([`${X+=1}`, `${Y}`])
         break;
       case "S":
         Y - 1 < 0 ? true : self.moveTrace.push([`${X}` , `${Y-=1}`])

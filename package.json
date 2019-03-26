@@ -4,9 +4,8 @@
   "description": "tech test",
   "main": "Hoover.js",
   "scripts": {
-    "test": "jasmine",
-    "start": "node Hoover.js",
-    "report-coverage": "istanbul cover ./node_modules/jasmine/bin/jasmine.js"
+    "test": "jasmine; jest",
+    "start": "node Hoover.js"
   },
   "author": "elly",
   "license": "ISC",

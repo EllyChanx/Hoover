@@ -33,21 +33,18 @@ npm start
 
 ### Testing and Coverage
 
-Unit tests were written in Jasmine v3.3.1 and track coverage with Istanbul. To use `jasmine` and `istanbul` commands, the following packages are required to be installed **globally**:
+Unit tests were written in Jasmine v3.3.1 and Jest v24.5.0 for edge cases. To use `jasmine` and `jest` commands, the following packages are required to be installed **globally**:
 ```
-npm install jasmine-node jasmine istanbul -g
+npm install jasmine-node jasmine jest -g
 ``` 
-To run tests, enter:
+To run tests and see coverage, enter:
 ```
-jasmine
+jasmine; jest
+jest --coverage
 ```
 or
 ```
-npn test
-```
-To see coverage, enter:
-```
-istanbul cover Hoover.js
+npm test -- --coverage
 ```
 To see linting result, enter:
 ```
@@ -94,4 +91,4 @@ self.dirtCoord.map( i => {
   } 
 })
 ```
-I altered the `switch` to store the movement coordinate `this.moveTrace` as string in arrays; then used `JSON.stringify` to allow `.includes` to be implemented. Potential problem on comparing array using `JSON.stringify` have not yet been found, but I simply (somehow) feel struggled that coordinate for `this.moveTrace` are being stored as string.
+I altered the `switch` to store the movement coordinate `this.moveTrace` as string in arrays; then used `JSON.stringify` to allow `.includes` to be implemented. Potential problem on comparing array using `JSON.stringify` have not yet been found, but I simply (somehow) feel struggled that coordinates are being stored as string.
